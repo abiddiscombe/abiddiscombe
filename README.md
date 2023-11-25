@@ -1,4 +1,10 @@
-### Hi there 👋
+### 👨‍💻 Hi there, I'm Archie.
+
+I'm an Associate Software Engineer currently working at [@OrdnanceSurvey](https://github.com/OrdnanceSurvey), where I help to build APIs and web solutions that underpin critical national services.
+
+I'm building my skills as a full-stack developer, with a particular focus on the frontend: React, Tailwind, and Emotion, alongside geo utils such as MapLibre and Turf. For APIs and backend things I'm mostly using Docker, Deno, and Hono, alongside MongoDB or Postgres.
+
+There's more to read over on [abiddiscombe.dev](https://abiddiscombe.dev) 🚀
 
 <!--
 **abiddiscombe/abiddiscombe** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
