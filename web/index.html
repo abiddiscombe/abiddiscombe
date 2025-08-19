@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AB</title>
+  </head>
+
+  <style>
+    :root {
+      --col-bg: oklch(98.5% 0 0);
+      --col-fg-1: oklch(70.8% 0 0);
+      --col-fg-2: oklch(26.9% 0 0);
+
+      @media (prefers-color-scheme: dark) {
+        --col-bg: oklch(14.5% 0 0);
+        --col-fg-1: oklch(55.6% 0 0);
+        --col-fg-2: oklch(92.2% 0 0);
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100dvh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      background-color: var(--col-bg);
+      font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+        segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto,
+        helvetica, arial, sans-serif;
+
+      & > main {
+        display: grid;
+        place-items: center;
+
+        & > svg {
+          width: 3em;
+          height: 3em;
+          stroke-width: 1.4px;
+
+          & > path {
+            color: var(--col-fg-2);
+          }
+
+          & > circle {
+            color: var(--col-fg-1);
+          }
+        }
+      }
+
+      & > footer {
+        padding: 1em 1em 3em 1em;
+        text-align: center;
+
+        & > a {
+          color: var(--col-fg-1);
+          font-size: small;
+          font-weight: 500;
+          text-decoration: none;
+        }
+
+        & > a:focus,
+        & > a:hover,
+        & > a:active {
+          color: var(--col-fg-2);
+        }
+      }
+    }
+  </style>
+
+  <body>
+    <main>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-compass-icon lucide-compass"
+      >
+        <path
+          d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"
+        />
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    </main>
+    <footer>
+        <a
+          href="https://github.com/abiddiscombe"
+          target="_blank"
+          aria-label="GitHub (Opens in a New Tab)"
+        >
+          @abiddiscombe
+        </a>
+      </nav>
+    </header>
+  </body>
+
+  <script>
+    const t = document.querySelector(".lucide-compass-icon");
+    const tBbox = t.getBoundingClientRect();
+    const tCenter = {
+      x: tBbox.left + tBbox.width / 2,
+      y: tBbox.top + tBbox.height / 2,
+    };
+
+    function handleInteraction(e) {
+      const angle =
+        Math.atan2(e.pageX - tCenter.x, -(e.pageY - tCenter.y)) *
+        (180 / Math.PI);
+      t.style.transform = `rotate(${angle - 45}deg)`;
+    }
+
+    document.addEventListener("mousemove", handleInteraction);
+  </script>
+</html>
